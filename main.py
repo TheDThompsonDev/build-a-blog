@@ -30,6 +30,13 @@ class User(db.Model):
         self.email = email
         self.password = password
 
+
+############################## Must Require login ##############################
+@app.before_request
+def require_login():
+    allowed_routes = ['login', 'register']
+    if request.endpoint not in allowed_routes and 'email' not in session:
+        return redirect('/login')
 ############################## Login Page ##############################
 @app.route('/login', methods=['POST', 'GET'])
 def login():
