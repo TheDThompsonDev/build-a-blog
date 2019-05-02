@@ -1,0 +1,29 @@
+    
+{% extends 'base.html' %}
+<!--{% block title %}Blog Posts {% endblock %}-->
+{% block content %}
+
+<div class = "nav">
+    <a href="/">Home</a>
+    <a href = "/newpost">Newpost</a>
+    <a href="login">Login</a>
+    <a href="register">Register</a>
+    <a href='logout'>Logout</a>
+
+</div>
+<h1>Blog Posts</h1>
+
+    {% if posts|length == 0 %}
+    <h3>No posts yet!</h3>
+    {% else %}
+
+    {% for post in posts %}
+    <div>
+        <h2><a href="/?id={{post.id}}">{{post.title}}</a></h2>
+        <p>{{post.body}}</p>
+        <hr>
+    </div>
+    {% endfor %}
+
+    {% endif %}
+{% endblock %}

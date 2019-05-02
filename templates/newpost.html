@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}New Post {% endblock %}
+{% block content %}
+
+<div class = "nav">
+    <a href="/">Home</a>
+    <a href = "/newpost">Newpost</a>
+    <a href="login">Login</a>
+    <a href="register">Register</a>
+    <a href='logout'>Logout</a>
+
+</div>
+<h1>New Post</h1>
+<form action="/newpost" method="post">
+    <label for="title">Title <br>
+    <input type="text" name="title" id="title"><br>
+        <p class="error">{{title_error}}</p>
+    </label>
+    <br>
+    <label for="body">Your Message <br>
+    <textarea name="body" id="" cols="30" rows="10"></textarea><br>
+        <p class="error">{{text_error}}</p>
+    </label>
+    <br>
+    <button type="submit">submit</button>
+</form>
+{% endblock %}

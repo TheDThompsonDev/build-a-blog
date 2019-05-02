@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% for post in posts %}
+<div class = "nav">
+    <a href="/">Home</a>
+    <a href = "/newpost">Newpost</a>
+    <a href="login">Login</a>
+    <a href="register">Register</a>
+    <a href='logout'>Logout</a>
+
+</div>
+    <div>
+        <h2>{{post.title}}</h2>
+        <p>{{post.body}}</p>
+        
+    </div>
+    {% endfor %}
+{% endblock %}
